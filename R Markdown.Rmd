@@ -1,0 +1,78 @@
+title: "planning awareness"
+author: "Wangjio"
+date: '2022-04-20'
+output: pdf_document
+---
+header includes:
+  - usepackage{hyperref}
+  - usepackage
+
+## R Markdown
+```{r }
+    x <- 1:10
+    y <- round(rnorm(10, x, 1), 2)
+    df <- data.frame(x, y)
+    df
+    ```
+    ```{r basicconsole}
+x <- 1:10
+y <- round(rnorm(10, x, 1), 2)
+df <- data.frame(x, y)
+df
+```
+
+## Including Plots
+
+### Simple plot
+
+    ```{r }
+    plot(DatasetTask)
+    ```
+
+```{r Frequency}
+plot(DatasetTask)
+
+### Multiple plots
+
+    ```{r }
+    boxplot(1:10~rep(1:2,5))
+    plot(x, y)
+    ```
+
+```{r multipleplots}
+boxplot(1:10~rep(1:2,5))
+plot(x, y)
+```
+```
+
+### `lattice` plot
+As do lattice plots:
+
+```{r latticeex}
+xyplot(y~x)
+```
+ ```{r , results='asis', echo=FALSE}
+    cat("Here are some dot points\n\n")
+    cat(paste("* The value of y[", 1:3, "] is ", y[1:3], sep="", collapse="\n"))
+    ```
+
+```{r dotpointprint, results='asis', echo=FALSE}
+cat("Here are some dot points\n\n")
+cat(paste("* The value of y[", 1:3, "] is ", y[1:3], sep="", collapse="\n"))
+
+### Create Markdown table code from R
+    ```{r , results='asis', echo=FALSE}
+    cat("x | y", "--- | ---", sep="\n")
+    cat(apply(df, 1, function(X) paste(X, collapse=" | ")), sep = "\n")
+    ```
+
+```{r createtable, results='asis', echo=FALSE}
+cat("x | y", "--- | ---", sep="\n")
+cat(apply(df, 1, function(X) paste(X, collapse=" | ")), sep = "\n")
+```
+
+### Control output display
+The folllowing code supresses display of R input commands (i.e., `echo=FALSE`)
+and removes any preceding text from console output (`comment=""`; the default is `comment="##"`).
+
+
